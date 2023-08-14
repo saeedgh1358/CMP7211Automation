@@ -18,7 +18,7 @@ routers:
       ansible_user: "{{username}}"
       ansible_ssh_pass: "{{password}}"
       ansible_become: yes
-      ansible_become_method: True
+      ansible_become_method: enable
       ansible_become_password : "{{password}}"
       ansible_action_warnings: False
       
