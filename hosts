@@ -10,7 +10,7 @@ routers:
       R3:
         ansible_host: 192.168.4.2
       R4:
-        ansible_host: 192.168.77.2
+        ansible_host: 192.168.77.1
 
     vars:
       ansible_connection: network_cli
