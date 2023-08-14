@@ -15,7 +15,8 @@
         - neighbor: 192.168.77.2
           remote_as: 65100
         networks:
-        - prefix:  192.168.77.1
+        - prefix:  192.168.5.0
+          masklen: 24
       operation: replace
 
 - hosts: R4
@@ -30,7 +31,8 @@
         - neighbor: 192.168.77.1
           remote_as: 65000
         networks:
-        - prefix:  192.168.77.2
+        - prefix:  192.168.99.0
+          masklen: 24
       operation: replace
 
 ...
