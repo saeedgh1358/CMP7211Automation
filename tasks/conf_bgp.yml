@@ -12,7 +12,7 @@
         bgp_as: 65000
         log_neighbor_changes: true
         neighbors:
-        - neighbor: 192.168.77.2
+        - neighbor: 192.168.77.1
           remote_as: 65100
         networks:
         - prefix:  192.168.5.0
@@ -28,7 +28,7 @@
         bgp_as: 65100
         log_neighbor_changes: true
         neighbors:
-        - neighbor: 192.168.77.1
+        - neighbor: 192.168.77.2
           remote_as: 65000
         networks:
         - prefix:  192.168.99.0
