@@ -1,0 +1,65 @@
+---
+
+#This playbook configures the loopback interfaces on each of the routers
+
+ - hosts: R1
+   gather_facts: false
+ 
+   tasks:
+    - name: Loopback Interface Creation & IP Address Configuration 
+      cisco.ios.ios_l3_interfaces:
+       config:
+       - name: Loopback0
+         ipv4:
+         - address: 192.168.6.1 255.255.255.0
+
+       - name: Loopback1
+         ipv4:
+         - address: 192.168.1.1 255.255.255.0
+
+       state: replaced
+
+ - hosts: R2
+   gather_facts: false
+   
+   tasks:
+   - name: Loopback Interface Creation & IP Address Configuration 
+     cisco.ios.ios_l3_interfaces:
+      config:
+      - name: Loopback0
+        ipv4:
+        - address: 192.168.3.1 255.255.255.0
+
+      state: replaced
+
+ - hosts: R3
+   gather_facts: false
+   
+   tasks:
+   - name: Loopback Interface Creation & IP Address Configuration 
+     cisco.ios.ios_l3_interfaces:
+      config:
+      - name: Loopback0
+        ipv4:
+        - address: 192.168.5.1 255.255.255.0
+
+      state: replaced
+
+ - hosts: R4
+   gather_facts: false
+   
+   tasks:
+    - name: Loopback Interface Creation & IP Address Configuration 
+      cisco.ios.ios_l3_interfaces:
+       config:
+       - name: Loopback0
+         ipv4:
+         - address: 192.168.99.1 255.255.255.0
+
+
+       state: replaced
+
+
+
+  
+...

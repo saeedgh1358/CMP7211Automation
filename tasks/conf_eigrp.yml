@@ -1,0 +1,32 @@
+---
+
+- hosts: R1
+  gather_facts: False
+  tasks:
+    - name: EIGRP Configuration on R1
+      cisco.ios.ios_config:
+        parents: "router eigrp 10"
+        lines:
+        - network 192.168.110.0 0.0.0.3
+        - network 192.168.2.0 0.0.0.3
+        - network 192.168.6.0 0.0.0.255
+        - network 192.168.1.0 0.0.0.255
+- hosts: R2
+  gather_facts: False
+  tasks:
+    - name: EIGRP Configuration on R2
+      cisco.ios.ios_config:
+        parents: "router eigrp 10"
+        lines:
+        - network 192.168.2.0 0.0.0.3
+        - redistribute ospf 1 metric 1 1 1 1 1
+
+- hosts: R2
+  gather_facts: False
+  tasks:
+    - name: Redistribute EIGRP Into OSPF on R2
+      cisco.ios.ios_config:
+        parents: "router ospf 1"
+        lines: 
+        - redistribute eigrp 10 subnets
+        

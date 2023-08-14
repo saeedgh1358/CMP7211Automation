@@ -1,0 +1,37 @@
+---
+
+- hosts: R3
+  gather_facts: false
+  tasks:
+   - name: Configure BGP On R3
+     cisco.ios.ios_bgp_global:
+       config:
+         as_number: 65000
+         bgp:
+           log_neighbor_changes: true
+         networks:
+           - address: 192.168.77.1
+         neighbor:
+           - address: 192.168.77.2
+             description:  Interface facing R4 (ISP)
+             remote_as: 65100
+       state: replaced
+
+- hosts: R4
+  gather_facts: false
+  tasks:
+   - name: Configure BGP On R4
+     cisco.ios.ios_bgp_global:
+       config:
+         as_number: 65100
+         bgp:
+           log_neighbor_changes: true
+         networks:
+           - address: 192.168.77.2
+         neighbor:
+           - address: 192.168.77.1
+             description:  Interface facing R3
+             remote_as: 65000
+       state: replaced
+
+...

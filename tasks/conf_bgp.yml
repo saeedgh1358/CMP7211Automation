@@ -1,0 +1,36 @@
+---
+
+#This file implements BGP protocol on R3 and R4
+
+- hosts: R3
+  gather_facts: false
+
+  tasks:
+  - name: Configure BGP On R3
+    cisco.ios.ios_bgp:
+      config:
+        bgp_as: 65000
+        log_neighbor_changes: true
+        neighbors:
+        - neighbor: 192.168.77.2
+          remote_as: 65100
+        networks:
+        - prefix:  192.168.77.1
+      operation: replace
+
+- hosts: R4
+  gather_facts: false
+  tasks:
+  - name: Configure BGP On R4
+    cisco.ios.ios_bgp:
+      config:
+        bgp_as: 65100
+        log_neighbor_changes: true
+        neighbors:
+        - neighbor: 192.168.77.1
+          remote_as: 65000
+        networks:
+        - prefix:  192.168.77.2
+      operation: replace
+
+...
