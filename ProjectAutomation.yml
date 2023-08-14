@@ -13,7 +13,7 @@
 
   - name: Begin Execution of Playbook For Enabling OSPF on R2 and R3
   import_playbook: tasks/enable_ospfv2.yml
-...
+  
 - name: Begin Execution of Playbook For BGP Configuration on R3 and R4
   import_playbook: tasks/conf_bgp.yml
 
