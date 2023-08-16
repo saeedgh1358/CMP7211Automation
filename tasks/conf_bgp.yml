@@ -17,7 +17,7 @@
         networks:
         - prefix:  192.168.5.0
           masklen: 24
-      operation: replaced
+      operation: replace
 
 - hosts: R4
   gather_facts: false
@@ -33,6 +33,6 @@
         networks:
         - prefix:  192.168.99.0
           masklen: 24
-      operation: replaced
+      operation: replace
 
 ...
