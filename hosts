@@ -1,6 +1,6 @@
 ---
 
-#Host file containing the location of the routers
+#Host file containing the location of the routers.
 routers:
     hosts:
       R1:
