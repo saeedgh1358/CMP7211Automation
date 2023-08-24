@@ -3,7 +3,7 @@
 - hosts: R3
   gather_facts: false
   tasks:
-   - name: Configure BGP On R3111111
+   - name: Configure BGP On R300000000000
      cisco.ios.ios_bgp_global:
        config:
          as_number: 65000
