@@ -5,7 +5,7 @@
 routers:
     hosts:
       R1:
-        ansible_host: 192.168.110.1
+        ansible_host: 192.168.110.125
       R2:
         ansible_host: 192.168.2.2
       R3:
