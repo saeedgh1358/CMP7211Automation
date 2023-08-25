@@ -41,8 +41,7 @@
       - name: Loopback0
         ipv4:
         - address: 192.168.5.1 255.255.255.0
-
- state: replaced
+      state: replaced
 
  - hosts: R4
    gather_facts: false
