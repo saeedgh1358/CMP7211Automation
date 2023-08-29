@@ -11,7 +11,7 @@
        config:
        - name: Loopback0
          ipv4:
-         - address: 192.168.6.3 255.255.255.0
+         - address: 192.168.6.33 255.255.255.0
        - name: Loopback1
          ipv4:
          - address: 192.168.1.1 255.255.255.0
