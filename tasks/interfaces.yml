@@ -40,7 +40,7 @@
       config:
       - name: Loopback0
         ipv4:
-        - address: 192.168.5.1 255.255.255.0
+        - address: 192.168.5.11 255.255.255.0
       state: replaced
 
  - hosts: R4
